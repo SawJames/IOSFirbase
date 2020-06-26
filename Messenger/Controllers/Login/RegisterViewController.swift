@@ -19,7 +19,7 @@ class RegisterViewController: UIViewController {
         
         private let imageView: UIImageView = {
             let imageView = UIImageView()
-            imageView.image = UIImage(systemName: "person")
+            imageView.image = UIImage(systemName: "person.circle")
             imageView.tintColor = .gray
             imageView.contentMode = .scaleAspectFit
             imageView.layer.masksToBounds = true
@@ -103,7 +103,7 @@ class RegisterViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            title = "Log In"
+
             view.backgroundColor = .white
 
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register",
@@ -170,19 +170,35 @@ class RegisterViewController: UIViewController {
             
             //Firebase Log in
             
-            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion:  { (authResult, error) in
-                guard let result = authResult, error == nil else{
-                    print("Error Creating User")
+            DatabaseManager.shared.userExits(with: email) {[weak self] (exits) in
+                guard let strongSelf = self else{
+                                       return
+                                   }
+                guard !exits else{
+                    // user already exits
+                    strongSelf.alertUserLoginError(message: "Looks like a user account for that email address already exits")
                     return
                 }
-                let user = result.user
-                print("created user \(user)")
-            })
+                FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion:  { (authResult, error) in
+                    
+                   
+                    guard authResult != nil, error == nil else{
+                        print("Error Creating User")
+                        return
+                    }
+                  
+                    DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email))
+                   
+                    strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                })
+                
+            }
+            
             
         }
         
-        func alertUserLoginError(){
-            let alert = UIAlertController(title: "Woops", message: "Please enter all information to create a new account", preferredStyle: .alert)
+    func alertUserLoginError(message: String = "Please enter all information to create a new account"){
+            let alert = UIAlertController(title: "Woops", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
             present(alert, animated: true)
         }
@@ -196,7 +212,7 @@ class RegisterViewController: UIViewController {
        
     }
 
-    extension RegisterViewController: UITextFieldDelegate{
+extension RegisterViewController: UITextFieldDelegate{
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             if textField == emailField{
                 passwordField.becomeFirstResponder()
