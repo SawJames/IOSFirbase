@@ -42,6 +42,7 @@ class ConversationsViewController: UIViewController {
         setupTableView()
         fetchConversation()
         
+        
        
     }
     
@@ -67,6 +68,7 @@ class ConversationsViewController: UIViewController {
     private func setupTableView(){
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = .systemGreen
     }
     
     private func validateAuth() {
@@ -88,7 +90,7 @@ class ConversationsViewController: UIViewController {
 
 extension ConversationsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

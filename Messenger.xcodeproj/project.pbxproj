@@ -21,6 +21,7 @@
 		AD10B00824966A640098E09F /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10B00724966A640098E09F /* NewConversationViewController.swift */; };
 		AD10B00A24966A790098E09F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10B00924966A790098E09F /* ProfileViewController.swift */; };
 		AD10B00E249674F60098E09F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10B00D249674F60098E09F /* Extension.swift */; };
+		AD1FDDF324A9973300E69027 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FDDF224A9973300E69027 /* StorageManager.swift */; };
 		AD67049E24A44EDB000378B3 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67049D24A44EDB000378B3 /* Database.swift */; };
 		AD67055824A862B8000378B3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD67055724A862B8000378B3 /* ChatViewController.swift */; };
 		ADF8657A2499121200D09D30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADF865792499121200D09D30 /* GoogleService-Info.plist */; };
@@ -42,6 +43,7 @@
 		AD10B00724966A640098E09F /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		AD10B00924966A790098E09F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AD10B00D249674F60098E09F /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		AD1FDDF224A9973300E69027 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		AD67049D24A44EDB000378B3 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		AD67055724A862B8000378B3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		ADF865792499121200D09D30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				AD10AFE7249661740098E09F /* SceneDelegate.swift */,
 				AD10B00D249674F60098E09F /* Extension.swift */,
 				AD67049D24A44EDB000378B3 /* Database.swift */,
+				AD1FDDF224A9973300E69027 /* StorageManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				AD10AFE8249661740098E09F /* SceneDelegate.swift in Sources */,
 				AD67055824A862B8000378B3 /* ChatViewController.swift in Sources */,
 				AD10B004249669E40098E09F /* PhotoViewerViewController.swift in Sources */,
+				AD1FDDF324A9973300E69027 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
